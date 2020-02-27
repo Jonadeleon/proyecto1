@@ -7,14 +7,22 @@
 
         Texto bla bla bla bla bla
 
-        {% for clase in clases%}
+   <table class="table table-striped">
+        <thead>
             <tr>
-                <td>
-                    {{clase['name']}}
-                </td>
+              <th>nombre clase</th>
+              <th>id</th>
             </tr>
-
+        </thead>
+        <tbody class="searchable">
+        {% for clase in clases %}
+                <tr>
+                  <td>{{clase["name"]}}</td>
+                </tr>
         {% endfor %}
+        </tbody>
+    </table>
+
     </div>
 
 {% endblock %}

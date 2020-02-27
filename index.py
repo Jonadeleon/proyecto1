@@ -1,24 +1,25 @@
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template
 # traemos dependecia de pymongo para la conexion a la base de datos
 from pymongo import MongoClient
 
 app = Flask(__name__)
-# ponemos la conexion y la base de datos
+# ponemos la conexion y la base de datos MUY IMPORTANTE TENER VERSION DE PYTHON ACTUALIZADO Y CONFIGURADO EN PYCHARM O NO FUNCIONARÁ EL ENLACE
 client = MongoClient("mongodb+srv://karmaster:acm1ptcactm@cluster0-gsee8.mongodb.net/test?retryWrites=true&w=majority")
-db = client.test
-
+db = client.Rol_test
 
 @app.route('/')
 def inicio():
     return render_template('index.html')
 
-@app.route('/clases')
+@app.route('/clases', methods=['GET'])
 def clases():
+    clases = db.clases.find().limit(10)
     return render_template('clases.html')
 
 @app.route('/razas')
 def razas():
-    return render_template('razas.html')
+    razas =db.razas.find().limit(10)
+    return render_template('razas.html', razas=razas)
 
 @app.route('/armaduras')
 def armaduras():

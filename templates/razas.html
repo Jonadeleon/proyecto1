@@ -6,6 +6,34 @@
         <h2>Test en razas</h2>
 
         Texto bla bla bla bla bla
+
+           <table class="table table-striped">
+        <thead>
+            <tr>
+              <th>nombre raza</th>
+              <th>origen</th>
+               <th>Stats bonus</th>
+               <th>Habilidades</th>
+            </tr>
+        </thead>
+        <tbody class="searchable">
+        {% for raza in razas %}
+                <tr>
+                  <td>{{raza["name"]}}</td>
+                  <td>{{raza["origen"]}}</td>
+                  <td>{{raza["stat1"]}}</td>
+                  <td>{{raza["Hab1"]}}</td>
+                  <td>{{raza["Hab2"]}}</td>
+                  <td>{{raza["Hab3"]}}</td>
+                  <td>{{raza["Hab4"]}}</td>
+                  <td>{{raza["Hab5"]}}</td>
+                  <td>{{raza["Hab6"]}}</td>
+                  <td>{{raza["Hab7"]}}</td>
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
     </div>
 
 {% endblock %}
