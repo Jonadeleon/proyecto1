@@ -6,6 +6,15 @@
         <h2>Test en clases</h2>
 
         Texto bla bla bla bla bla
+
+        {% for clase in clases%}
+            <tr>
+                <td>
+                    {{clase['name']}}
+                </td>
+            </tr>
+
+        {% endfor %}
     </div>
 
 {% endblock %}

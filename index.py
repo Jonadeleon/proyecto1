@@ -4,8 +4,8 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 # ponemos la conexion y la base de datos
-client = MongoClient('localhost', 27017)
-# db =
+client = MongoClient("mongodb+srv://karmaster:acm1ptcactm@cluster0-gsee8.mongodb.net/test?retryWrites=true&w=majority")
+db = client.test
 
 
 @app.route('/')
