@@ -14,11 +14,11 @@ def inicio():
 @app.route('/clases', methods=['GET'])
 def clases():
     clases = db.clases.find().limit(10)
-    return render_template('clases.html')
+    return render_template('clases.html', clases=clases)
 
 @app.route('/razas')
 def razas():
-    razas =db.razas.find().limit(10)
+    razas = db.razas.find().limit(10)
     return render_template('razas.html', razas=razas)
 
 @app.route('/armaduras')
@@ -32,6 +32,19 @@ def armas():
 @app.route('/items')
 def items():
     return render_template('items.html')
+
+@app.route('/update')
+def update():
+    name = request.args['name']
+    stat = request.args['stat']
+    hab1 = request.args['hab1']
+
+    db.clases.insert_one(
+        {"name": name,
+         "stat": stat,
+         "hab1": hab1}
+    )
+    return rendirect('/update')
 
 if __name__ == "__main__":
     app.run(debug=True)
