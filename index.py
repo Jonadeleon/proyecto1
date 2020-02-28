@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 # traemos dependecia de pymongo para la conexion a la base de datos
 from pymongo import MongoClient
 
@@ -35,16 +35,29 @@ def items():
 
 @app.route('/update')
 def update():
+    if request.method == 'POST':
+        name = request.args['name']
+        stat = request.args['stat']
+        hab1 = request.args['hab1']
+        flash(str(name))
+        flash(str(stat))
+        flash(str(hab1))
+    return render_template('update.html')
+
+@app.route('/subida')
+def subida():
     name = request.args['name']
     stat = request.args['stat']
     hab1 = request.args['hab1']
 
     db.clases.insert_one(
-        {"name": name,
-         "stat": stat,
-         "hab1": hab1}
+        {
+            "name": name,
+            "stat": stat,
+            "hab1":hab1
+        }
     )
-    return rendirect('/update')
+    return redirect('/update')
 
 if __name__ == "__main__":
     app.run(debug=True)
