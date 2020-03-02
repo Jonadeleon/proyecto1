@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content%}
+
+ <form action="/subida" method="GET" >
+        <h1> Añadir datos de clase a la DB </h1>
+
+        <!-- Dropdown para elegir el nombre -->
+        <div class="form-group col-md-2">
+            <label for="name">Pon el nombre de la Clase</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Nombre">
+        </div>
+        <!-- Cuadro para añadir el stat -->
+        <div class="form-group col-md-3">
+              <label for="stat">Introduce stat: </label>
+              <input type="text" class="form-control" name="stat" id="stat" placeholder="Stat">
+        </div>
+        <!-- Cuadro para añadir la habilidad -->
+        <div class="form-group col-md-3">
+            <label for="hab1">Introduce hab1: </label>
+            <input type="text" class="form-control" name="hab1" id="hab1" placeholder="Hab1">
+        </div>
+
+       <!-- Boton para enviar el form -->
+       <div class="form-group col-md-1">
+           <button type="submit" class="btn btn-primary">Enviar</button>
+       </div>
+
+ </form>
+
+{% endblock %}
