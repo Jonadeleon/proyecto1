@@ -13,12 +13,12 @@ def inicio():
 
 @app.route('/clases', methods=['GET'])
 def clases():
-    clases = db.clases.find().limit(10)
+    clases = db.clases.find()
     return render_template('clases.html', clases=clases)
 
 @app.route('/razas')
 def razas():
-    razas = db.razas.find().limit(10)
+    razas = db.razas.find()
     return render_template('razas.html', razas=razas)
 
 @app.route('/armaduras')
@@ -57,7 +57,7 @@ def subida():
             "hab1":hab1
         }
     )
-    return redirect('/update')
+    return redirect('/clases')
 
 if __name__ == "__main__":
     app.run(debug=True)
