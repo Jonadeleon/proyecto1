@@ -33,17 +33,6 @@ def armas():
 def items():
     return render_template('items.html')
 
-@app.route('/update')
-def update():
-    if request.method == 'POST':
-        name = request.args['name']
-        stat = request.args['stat']
-        hab1 = request.args['hab1']
-        flash(str(name))
-        flash(str(stat))
-        flash(str(hab1))
-    return render_template('update.html')
-
 @app.route('/subida')
 def subida():
     name = request.args['name']
@@ -54,9 +43,15 @@ def subida():
         {
             "name": name,
             "stat": stat,
-            "hab1":hab1
+            "hab1": hab1
         }
     )
+    return redirect('/clases')
+
+@app.route('/delete', methods=['POST'])
+def delete_clase(id):
+    object = db.clases(id)
+    delete(object)
     return redirect('/clases')
 
 if __name__ == "__main__":
