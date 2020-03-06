@@ -40,9 +40,38 @@
             <li class="nav-item">
                 <a class="nav-link" href="/items">Items</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/update">Añadir a base de datos</a>
-            </li>
+            <div class="container">
+                <li class="nav-item">
+                    <a href="/update" class="btn btn-primary" data-toggle="modal" data-target="#update-db">Añadir a base de datos</a>
+<!--                    <button type="button" data-toggle="modal" data-target="#update-db">Launch modal</button>-->
+
+                    <div class="modal fade" id="update-db" tabindex="-1" role="dialog" aria-labelledby="update-db" aria-hidden="true" data-backdrop="false">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="update-db-moal">Añadir a db</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                     <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <input type="name" id="name" name="Nombre" placeholder="Nombre">
+                                        <input type="stat" id="stat" name="Stat" placeholder="Stat">
+                                        <input type="hab1" id="hab1" name="Hab1" placeholder="Hab">
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<!--                                   <button type="button" class="btn btn-primary">Save changes</button>-->
+                                    <input type="submit" value="Enviar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Buscar">
