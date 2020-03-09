@@ -11,18 +11,26 @@
         <thead>
             <tr>
               <th>Nombre de la clase</th>
+              <th>Descripción</th>
               <th>Stat bonus</th>
+              <th>Dados de vida</th>
+              <th>Dados de magia</th>
+              <th>Licencias de clase</th>
               <th>Habilidades de clase</th>
-              <th>Boton de borrado</th>
+<!--              <th>Boton de borrado</th>-->
             </tr>
         </thead>
         <tbody class="searchable">
         {% for class in clases %}
                 <tr>
-                  <td>{{class["name"]}}</td>
-                    <td>{{class["stat"]}}</td>
+                    <td>{{class["name"]}}</td>
+                    <td>{{class["description"]}}</td>
+                    <td>{{class["stat_bonus"]}}</td>
+                    <td>{{class["dice_pv"]}}</td>
+                    <td>{{class["dice_pm"]}}</td>
+                    <td>{{class["licencias"]}}</td>
                     <td>{{class["hab1"]}}</td>
-                    <td><a class="nav-link" href="/delete">Delete</a></td>
+<!--                    <td><a class="nav-link" href="/delete">Delete</a></td>-->
                 </tr>
         {% endfor %}
         </tbody>
