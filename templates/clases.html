@@ -17,22 +17,28 @@
               <th>Dados de magia</th>
               <th>Licencias de clase</th>
               <th>Habilidades de clase</th>
-<!--              <th>Boton de borrado</th>-->
+              <th>Boton de update</th>
             </tr>
         </thead>
         <tbody class="searchable">
-        {% for class in clases %}
-                <tr>
-                    <td>{{class["name"]}}</td>
-                    <td>{{class["description"]}}</td>
-                    <td>{{class["stat_bonus"]}}</td>
-                    <td>{{class["dice_pv"]}}</td>
-                    <td>{{class["dice_pm"]}}</td>
-                    <td>{{class["licencias"]}}</td>
-                    <td>{{class["hab1"]}}</td>
-<!--                    <td><a class="nav-link" href="/delete">Delete</a></td>-->
-                </tr>
-        {% endfor %}
+            <form action="/update" method="get">
+                {% for class in clases %}
+                    <tr>
+<!--                        <td contenteditable="true">{{class["name"]}}</td>-->
+                        <td><input type="text" class="form-control" id="name" value="{{class['name']}}"></td>
+                        <td><input type="text" class="form-control" id="description" value="{{class['description']}}"></td>
+                        <td><input type="text" class="form-control" id="stat_bonus" value="{{class['stat_bonus']}}"></td>
+                        <td><input type="text" class="form-control" id="dice_pv" value="{{class['dice_pv']}}"></td>
+                        <td><input type="text" class="form-control" id="dice_pm" value="{{class['dice_pm']}}"></td>
+                        <td><input type="text" class="form-control" id="licencias" value="{{class['licencias']}}"></td>
+                        <td><input type="text" class="form-control" id="hab1" value="{{class['hab1']}}"></td>
+    <!--                    <td><input class="button" href="/update">Update</input></td>-->
+                        <td><button type="submit" class="btn btn-primary">Save changes</button></td>
+
+                    </tr>
+                {% endfor %}
+            </form>
+
         </tbody>
     </table>
 

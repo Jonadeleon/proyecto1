@@ -59,6 +59,29 @@ def subida():
     )
     return redirect('/clases')
 
+@app.route('/update')
+def update():
+    name = request.args['name']
+    description = request.args['descripcion']
+    stat_bonus = request.args['stat_bonus']
+    dice_pv = request.args['dados_pv']
+    dice_pm = request.args['dados_pm']
+    licencias = request.args['licencias']
+    hab1 = request.args['hab1']
+
+    db.clases.update_one(
+        {
+            "name": name,
+            "descripcion": description,
+            "stat_bonus": stat_bonus,
+            "dice_pv": dice_pv,
+            "dice_pm": dice_pm,
+            "licencias": licencias,
+            "hab1": hab1
+        }
+    )
+
+    return redirect('/clases')
 
 if __name__ == "__main__":
     app.run(debug=True)
