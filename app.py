@@ -23,15 +23,18 @@ def razas():
 
 @app.route('/armaduras')
 def armaduras():
-    return render_template('armaduras.html')
+    armors = db.armaduras.find()
+    return render_template('armaduras.html', armors=armors)
 
 @app.route('/armas')
 def armas():
-    return render_template('armas.html')
+    weapons = db.armas.find()
+    return render_template('armas.html', weapons=weapons)
 
 @app.route('/items')
 def items():
-    return render_template('items.html')
+    items = db.items.find()
+    return render_template('items.html', items=items)
 
 @app.route('/subida')
 def subida():
@@ -56,11 +59,6 @@ def subida():
     )
     return redirect('/clases')
 
-# @app.route('/delete', methods=['POST'])
-# def delete_clase():
-#     delete = db.clases.delete_many({"'name':'w52345'"})
-#
-#     return redirect('/clases', delete=delete)
 
 if __name__ == "__main__":
     app.run(debug=True)
